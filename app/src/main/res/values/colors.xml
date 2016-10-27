@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="detail_logo_mask_end">#70000000</color>
+    <color name="detail_logo_mask_start">@color/transparent</color>
+
+    <color name="night_mode_background">#595959</color>
+    <color name="night_mode_item_background">#6d6d6d</color>
+    <color name="night_mode_item_read">#aa000000</color>
+
+</resources>

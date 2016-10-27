@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_pressed">#dddddd</color>
+    <color name="common_bg">#f2f2f2</color>
+    <color name="white">#ffffff</color>
+    <color name="red">#d9434b</color>
+    <color name="txt_main">#555555</color>
+    <color name="txt_disable">#dddddd</color>
+    <color name="hint">#999999</color>
+
+    <color name="line_normal">#eeeeee</color>
+    <color name="line_divide">#9f9f9f</color>
+
+    <color name="custom_toast_bg">#90000000</color>
+</resources>

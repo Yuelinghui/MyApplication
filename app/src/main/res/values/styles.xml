@@ -1,0 +1,42 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="app_base_theme" parent="android:Theme.Light.NoTitleBar"></style>
+
+    <style name="Theme.Activity.Splash" parent="android:Theme.Translucent.NoTitleBar.Fullscreen"></style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="app_base_theme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="Theme.Activity.Common" parent="android:Theme">
+        <item name="android:windowTitleSize">@dimen/title_height</item>
+        <item name="android:windowBackground">@color/common_bg</item>
+        <item name="android:windowTitleBackgroundStyle">@style/app_title_background_color</item>
+        <item name="android:windowAnimationStyle">@style/animation_activity_common</item>
+    </style>
+
+    <style name="app_title_background_color">
+        <item name="android:background">@color/common_bg</item>
+    </style>
+
+    <style name="animation_activity_common">
+        <item name="android:activityOpenEnterAnimation">@anim/push_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/push_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/push_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/push_right_out</item>
+    </style>
+    
+    <style name="DayTheme" parent="Theme.Activity.Common">
+        <item name="home_item_text_color">@color/txt_main</item>
+        <item name="home_bg">@color/bg_pressed</item>
+        <item name="home_item_bg">@color/white</item>
+    </style>
+
+    <style name="NightTheme" parent="Theme.Activity.Common">
+        <item name="home_item_text_color">@color/white</item>
+        <item name="home_bg">@color/night_mode_background</item>
+        <item name="home_item_bg">@color/night_mode_item_background</item>
+    </style>
+</resources>

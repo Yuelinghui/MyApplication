@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomProgressDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@drawable/icon_transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="popuWindowAnimation">
+        <item name="android:windowEnterAnimation">@anim/popuwindow_in</item>
+        <item name="android:windowExitAnimation">@anim/popuwindow_out</item>
+    </style>
+
+    <style name="txt_normal">
+        <item name="android:textSize">@dimen/size_middle</item>
+        <item name="android:textColor">@color/custom_text_main_color</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColorHint">@color/hint</item>
+    </style>
+
+    <!-- 小文本 -->
+    <style name="txt_small" parent="txt_normal">
+        <item name="android:textSize">@dimen/size_small</item>
+    </style>
+
+    <!-- 小文本 -->
+    <style name="txt_xmiddle" parent="txt_normal">
+        <item name="android:textSize">@dimen/size_xmiddle</item>
+    </style>
+
+    <!-- 大文本 -->
+    <style name="txt_large" parent="txt_normal">
+        <item name="android:textSize">@dimen/size_large</item>
+    </style>
+
+    <style name="divider_line">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/line_normal</item>
+    </style>
+
+    <!--对话框-->
+    <style name="cp_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@drawable/icon_transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="btn_normal">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:textSize">@dimen/size_large</item>
+        <item name="android:paddingLeft">@dimen/margin_h_middle</item>
+        <item name="android:paddingRight">@dimen/margin_h_middle</item>
+    </style>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.yuelinghui.personal.widget.image.CustomImageView
+        android:id="@+id/imgview_banner"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="fitXY" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/custom_logo_mask_bg"/>
+
+    <TextView
+        android:id="@+id/txt_descript"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="16dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size_large" />
+</FrameLayout>

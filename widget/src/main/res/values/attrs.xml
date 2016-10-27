@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BannerPlayView">
+        <attr name="autoScrollEvent" format="integer"></attr>
+        <attr name="pageNumber" format="integer"></attr>
+        <attr name="pageDrawableNormal" format="reference"></attr>
+        <attr name="pageDrawableSelected" format="reference"></attr>
+        <attr name="pageMarginBottom" format="dimension"></attr>
+        <attr name="pageInterval" format="dimension"></attr>
+        <attr name="pageDotSize" format="dimension"></attr>
+        <attr name="belongType" format="string"></attr>
+        <attr name="scrollDuration" format="integer"></attr>
+    </declare-styleable>
+</resources>

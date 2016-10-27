@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">widget</string>
+    <string name="error_net_unconnect">无网络连接，请检查您的网络</string>
+    <string name="refresh_net">点击刷新</string>
+
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="common_alert_message">操作尚未完成，确定放弃？</string>
+    <string name="common_loading">正在加载&#8230;</string>
+
+    <string name="refresh_listview_header">正在加载</string>
+    <string name="refresh_listview_header_hint_empty">暂无更多记录</string>
+    <string name="refresh_listview_header_hint_ready">松开加载更多</string>
+    <string name="refresh_listview_header_hint_normal">滑动加载</string>
+</resources>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_cpdialog"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_dialog_bg"
+    android:orientation="vertical"
+    android:padding="0dp" >
+
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/margin_h_middle" >
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/txt_main"
+            android:textSize="@dimen/size_large" />
+    </LinearLayout>
+    <!-- 标题上方横线（去掉横线） -->
+
+
+    <!-- 内容布局 -->
+
+    <LinearLayout
+        android:id="@+id/layout_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:minHeight="60dp"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/margin_h_middle" >
+
+        <!-- 提示叹号 （去掉图标） -->
+
+        <TextView
+            android:id="@+id/txt_msg"
+            style="@style/txt_normal"
+            android:gravity="center"
+            android:paddingLeft="@dimen/margin_h_middle"
+            android:paddingRight="@dimen/margin_h_middle"
+            android:paddingTop="@dimen/margin_h_middle"
+            android:textColor="@color/txt_main" />
+    </LinearLayout>
+
+    <!-- 按钮布局 -->
+
+    <LinearLayout
+        android:id="@+id/btn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <!-- 按钮上方的分割线 -->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/common_bg" />
+        <!-- 按钮 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <com.yuelinghui.personal.widget.CustomButton
+                android:id="@+id/btn_cancel"
+                style="@style/btn_normal"
+                android:layout_weight="1"
+                android:background="@drawable/custom_dialog_left_btn_bg"
+                android:text="@string/cancel"
+                android:textColor="@color/red" />
+
+            <View
+                android:id="@+id/view_splider"
+                android:layout_width="1dp"
+                android:layout_height="48dp"
+                android:background="@color/common_bg" />
+
+            <com.yuelinghui.personal.widget.CustomButton
+                android:id="@+id/btn_ok"
+                style="@style/btn_normal"
+                android:layout_gravity="right"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_dialog_left_btn_bg"
+                android:text="@string/sure"
+                android:textColor="@color/red" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

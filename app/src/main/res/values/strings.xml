@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">掌上知乎</string>
+    <string name="quit_remind">再按一次退出掌上知乎</string>
+    <string name="app_splash_tip">你手掌上的知乎</string>
+    <string name="extra_error">数据错误</string>
+
+    <string name="main_title">首页</string>
+    <string name="main_multi_pic">多图</string>
+    <string name="main_menu_title">设置</string>
+    <string name="main_menu_night_mode">夜间</string>
+    <string name="main_menu_day_mode">日间</string>
+
+    <string name="detail_title">文章详情</string>
+
+</resources>
