@@ -27,4 +27,6 @@
     <dimen name="common_title_height">48dp</dimen>
     <dimen name="titlebar_width_avage">210dp</dimen>
     <dimen name="titlebar_width_sub">100dp</dimen>
+
+    <dimen name="height_small">20dp</dimen>
 </resources>
