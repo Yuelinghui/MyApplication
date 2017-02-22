@@ -1,7 +1,6 @@
 package com.yuelinghui.personal.myapplication.core;
 
 import com.yuelinghui.personal.myapplication.util.SharedUtil;
-import com.yuelinghui.personal.widget.core.RunningContext;
 
 /**
  * Created by yuelinghui on 16/10/17.

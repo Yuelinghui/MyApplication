@@ -32,11 +32,20 @@
         <item name="home_item_text_color">@color/txt_main</item>
         <item name="home_bg">@color/bg_pressed</item>
         <item name="home_item_bg">@color/white</item>
+        <item name="txt_nav_header">@color/white</item>
+        <item name="icon_nav_header_mode">@drawable/icon_menu_night</item>
+        <item name="icon_nav_header_offline">@drawable/icon_menu_outline_day</item>
+        <item name="text_mode_string">@string/main_menu_night_mode</item>
     </style>
 
     <style name="NightTheme" parent="Theme.Activity.Common">
         <item name="home_item_text_color">@color/white</item>
         <item name="home_bg">@color/night_mode_background</item>
         <item name="home_item_bg">@color/night_mode_item_background</item>
+
+        <item name="txt_nav_header">@color/gray</item>
+        <item name="icon_nav_header_mode">@drawable/icon_day</item>
+        <item name="icon_nav_header_offline">@drawable/icon_menu_outline_night</item>
+        <item name="text_mode_string">@string/main_menu_day_mode</item>
     </style>
 </resources>

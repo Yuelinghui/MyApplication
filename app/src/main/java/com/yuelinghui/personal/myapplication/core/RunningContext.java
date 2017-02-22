@@ -1,8 +1,10 @@
-package com.yuelinghui.personal.widget.core;
+package com.yuelinghui.personal.myapplication.core;
 
 import android.content.Intent;
 
 import com.yuelinghui.personal.maframe.are.RunningEnvironment;
+import com.yuelinghui.personal.widget.core.AppData;
+import com.yuelinghui.personal.widget.core.BroadcastAction;
 import com.yuelinghui.personal.widget.toast.Toast;
 
 /**

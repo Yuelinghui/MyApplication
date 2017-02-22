@@ -1,4 +1,4 @@
-package com.yuelinghui.personal.widget.core.ui;
+package com.yuelinghui.personal.myapplication.core.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;

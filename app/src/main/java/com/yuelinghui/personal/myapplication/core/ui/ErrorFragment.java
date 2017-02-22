@@ -1,4 +1,4 @@
-package com.yuelinghui.personal.widget.core.ui;
+package com.yuelinghui.personal.myapplication.core.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import com.yuelinghui.personal.widget.R;
  * Created by yuelinghui on 16/10/13.
  */
 
-public class ErrorFragment extends BaseFragment{
+public class ErrorFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

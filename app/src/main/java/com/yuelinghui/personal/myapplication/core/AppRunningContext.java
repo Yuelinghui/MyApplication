@@ -2,8 +2,6 @@ package com.yuelinghui.personal.myapplication.core;
 
 import android.app.Application;
 
-import com.yuelinghui.personal.widget.core.RunningContext;
-
 /**
  * Created by yuelinghui on 16/9/30.
  */

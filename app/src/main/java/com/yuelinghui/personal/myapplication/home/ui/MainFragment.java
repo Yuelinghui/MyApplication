@@ -12,6 +12,7 @@ import com.yuelinghui.personal.maframe.result.ResultHandler;
 import com.yuelinghui.personal.maframe.util.DateUtil;
 import com.yuelinghui.personal.myapplication.R;
 import com.yuelinghui.personal.myapplication.core.AppRunningContext;
+import com.yuelinghui.personal.myapplication.core.ui.BaseFragment;
 import com.yuelinghui.personal.myapplication.home.entity.ArticleInfo;
 import com.yuelinghui.personal.myapplication.home.entity.StoriesInfo;
 import com.yuelinghui.personal.myapplication.home.model.MainModel;
@@ -20,7 +21,6 @@ import com.yuelinghui.personal.myapplication.util.SharedUtil;
 import com.yuelinghui.personal.widget.bannerview.Banner;
 import com.yuelinghui.personal.widget.bannerview.BannerInfo;
 import com.yuelinghui.personal.widget.bannerview.BannerPlayView;
-import com.yuelinghui.personal.widget.core.ui.BaseFragment;
 import com.yuelinghui.personal.widget.listview.CustomRefreshListView;
 import com.yuelinghui.personal.widget.toast.CustomToast;
 

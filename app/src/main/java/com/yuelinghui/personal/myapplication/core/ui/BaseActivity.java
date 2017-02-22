@@ -1,4 +1,4 @@
-package com.yuelinghui.personal.widget.core.ui;
+package com.yuelinghui.personal.myapplication.core.ui;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -33,7 +33,7 @@ import com.yuelinghui.personal.widget.CustomButton;
 import com.yuelinghui.personal.widget.CustomProgressDialog;
 import com.yuelinghui.personal.widget.R;
 import com.yuelinghui.personal.widget.core.BroadcastAction;
-import com.yuelinghui.personal.widget.core.RunningContext;
+import com.yuelinghui.personal.myapplication.core.RunningContext;
 import com.yuelinghui.personal.widget.dialog.CustomDialog;
 import com.yuelinghui.personal.widget.image.CustomImageView;
 import com.yuelinghui.personal.widget.titlebar.CustomAction;
@@ -54,25 +54,15 @@ public abstract class BaseActivity extends TransitionAnimationActivity {
      */
     public static final String UIDATA = "uidata";
 
-    // /**
-    // * 存储startActivityforResult处理的view的容器的键
-    // */
-    // public static final String RESULT_VIEW = "resultView";
-
     /**
      * 业务数据
      */
     public UIData mUIData = null;
 
     /**
-     * 进度条 *
+     * 进度条
      */
     private CustomProgressDialog mProgressDialog = null;
-
-    /**
-     * 用于隐藏键盘
-     */
-    private InputMethodManager imm = null;
 
     /**
      * 通用 activity 布局（无滚动，需Fragment自己处理滚动）
@@ -109,10 +99,6 @@ public abstract class BaseActivity extends TransitionAnimationActivity {
      */
     public FrameLayout mTitleCustomLayout = null;
     public ViewGroup mTilteBaseLayout = null;
-    // /**
-    // * 分割线
-    // */
-    // private View mTitleDivider = null;
     /**
      * 标题栏自定义View
      */
@@ -121,11 +107,6 @@ public abstract class BaseActivity extends TransitionAnimationActivity {
      * fragment 容器
      */
     private ScrollView mScrollView = null;
-
-    // /**
-    // * 需要通过onActivityForResult获取返回值的view
-    // */
-    // private HashSet<ViewReceiver> mResultViewSet = null;
 
     /**
      * 解决4.0以后用户调整系统字号问题，使用此配置，APP字体大小不随系统字号大小变动
@@ -378,8 +359,6 @@ public abstract class BaseActivity extends TransitionAnimationActivity {
         }
         super.onCreate(savedInstanceState);
 
-        imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-
         // 注册 APP_EXIT 广播
         mExitReciver = new ExitAPPReciver();
         registerReceiver(mExitReciver, mIntentFilter);
@@ -441,17 +420,13 @@ public abstract class BaseActivity extends TransitionAnimationActivity {
     }
 
     private void start(Intent intent, int requestCode) {
-        // 隐藏键盘
-        if (getCurrentFocus() != null) {
-            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-        }
         super.startActivityForResult(intent, requestCode);
     }
 
     @Override
     public void onBackPressed() {
         int count = getSupportFragmentManager().getBackStackEntryCount();
-        List<android.support.v4.app.Fragment> list = getSupportFragmentManager().getFragments();
+        List<Fragment> list = getSupportFragmentManager().getFragments();
         BaseFragment fragment = null;
         if (list != null && list.size() > 0) {
             if (list.size() > count) {
@@ -498,7 +473,7 @@ public abstract class BaseActivity extends TransitionAnimationActivity {
      *
      * @param fragment
      */
-    public void startFirstFragment(android.support.v4.app.Fragment fragment) {
+    public void startFirstFragment(Fragment fragment) {
 
         if (isFinishing()) {
             return;
@@ -594,7 +569,7 @@ public abstract class BaseActivity extends TransitionAnimationActivity {
      * @param clazz
      * @author wyqiuchunlong
      */
-    public void backToFragment(Class<? extends android.support.v4.app.Fragment> clazz) {
+    public void backToFragment(Class<? extends Fragment> clazz) {
         String fragmentName = clazz.getName();
         FragmentManager manager = getSupportFragmentManager();
         try {
@@ -603,10 +578,10 @@ public abstract class BaseActivity extends TransitionAnimationActivity {
                 pop = manager.popBackStackImmediate();
             }
 
-            android.support.v4.app.Fragment newFragment = null;
-            List<android.support.v4.app.Fragment> fs = manager.getFragments();
+            Fragment newFragment = null;
+            List<Fragment> fs = manager.getFragments();
             if (fs != null && fs.size() > 0) {
-                for (android.support.v4.app.Fragment f : fs) {
+                for (Fragment f : fs) {
                     if (f != null
                             && f.getClass().getName().compareTo(fragmentName) == 0) {
                         newFragment = f;
@@ -632,7 +607,7 @@ public abstract class BaseActivity extends TransitionAnimationActivity {
      * @param clazz
      * @author wyqiuchunlong
      */
-    public void backToStackFragment(Class<? extends android.support.v4.app.Fragment> clazz) {
+    public void backToStackFragment(Class<? extends Fragment> clazz) {
         String fragmentName = clazz.getName();
         FragmentManager manager = getSupportFragmentManager();
         if (manager.findFragmentByTag(fragmentName) != null) {
@@ -643,10 +618,10 @@ public abstract class BaseActivity extends TransitionAnimationActivity {
                 while (pop) {
                     pop = manager.popBackStackImmediate();
                 }
-                android.support.v4.app.Fragment newFragment = null;
-                List<android.support.v4.app.Fragment> fs = manager.getFragments();
+                Fragment newFragment = null;
+                List<Fragment> fs = manager.getFragments();
                 if (fs != null && fs.size() > 0) {
-                    for (android.support.v4.app.Fragment f : fs) {
+                    for (Fragment f : fs) {
                         if (f != null
                                 && f.getClass().getName()
                                 .compareTo(fragmentName) == 0) {
