@@ -7,9 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.yuelinghui.personal.maframe.are.RunningEnvironment;
 import com.yuelinghui.personal.widget.Attachable;
 import com.yuelinghui.personal.widget.R;
-import com.yuelinghui.personal.widget.core.RunningContext;
 
 /**
  * Created by yuelinghui on 16/10/13.
@@ -58,9 +58,9 @@ public class CustomToast extends Toast {
     @Override
     public void show() {
         // 如果已经退出应用，则不弹出toast
-        if (RunningContext.sAppData.sIsExitApp) {
-            return;
-        }
+//        if (RunningContext.sAppData.sIsExitApp) {
+//            return;
+//        }
 
         if (TextUtils.isEmpty(mToastStr)) {
             return;
@@ -95,7 +95,7 @@ public class CustomToast extends Toast {
      * @return
      */
     public static CustomToast makeText(CharSequence text) {
-        return makeText(RunningContext.sAppContext, text);
+        return makeText(RunningEnvironment.sAppContext, text);
     }
 
     /**
@@ -131,7 +131,7 @@ public class CustomToast extends Toast {
      * @return
      */
     public static CustomToast makeText(int resId) {
-        return makeText(RunningContext.sAppContext.getResources()
+        return makeText(RunningEnvironment.sAppContext.getResources()
                 .getText(resId));
     }
 

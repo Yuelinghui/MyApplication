@@ -1,4 +1,4 @@
-package com.yuelinghui.personal.myapplication.core.ui;
+package com.yuelinghui.personal.widget.core.ui;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -26,6 +26,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.yuelinghui.personal.maframe.UIData;
+import com.yuelinghui.personal.maframe.are.RunningEnvironment;
 import com.yuelinghui.personal.maframe.concurrent.CancelListener;
 import com.yuelinghui.personal.maframe.result.ResultHandler;
 import com.yuelinghui.personal.network.NetModel;
@@ -33,7 +34,7 @@ import com.yuelinghui.personal.widget.CustomButton;
 import com.yuelinghui.personal.widget.CustomProgressDialog;
 import com.yuelinghui.personal.widget.R;
 import com.yuelinghui.personal.widget.core.BroadcastAction;
-import com.yuelinghui.personal.myapplication.core.RunningContext;
+import com.yuelinghui.personal.widget.core.TransitionAnimationActivity;
 import com.yuelinghui.personal.widget.dialog.CustomDialog;
 import com.yuelinghui.personal.widget.image.CustomImageView;
 import com.yuelinghui.personal.widget.titlebar.CustomAction;
@@ -759,7 +760,7 @@ public abstract class BaseActivity extends TransitionAnimationActivity {
                                 final CancelListener cancelHandler, final int cancelType) {
 
         if (checkNet) {
-            boolean isConnected = RunningContext.checkNetWork();
+            boolean isConnected = RunningEnvironment.checkNetWork();
             if (!isConnected) {
                 CustomToast.makeText(getString(R.string.error_net_unconnect))
                         .show();
@@ -825,7 +826,7 @@ public abstract class BaseActivity extends TransitionAnimationActivity {
      * @return
      */
     public boolean checkNetWork() {
-        if (!RunningContext.checkNetWork()) {
+        if (!RunningEnvironment.checkNetWork()) {
             CustomToast.makeText(getString(R.string.error_net_unconnect)).show();
             return false;
         }
@@ -1050,9 +1051,9 @@ public abstract class BaseActivity extends TransitionAnimationActivity {
      * 初始化手机屏幕参数
      */
     public void initScreenParm() {
-        if (RunningContext.sScreenHeight == 0
-                || RunningContext.sScreenWidth == 0
-                || RunningContext.sScreenDpi == 0) {
+        if (RunningEnvironment.sScreenHeight == 0
+                || RunningEnvironment.sScreenWidth == 0
+                || RunningEnvironment.sScreenDpi == 0) {
 
             DisplayMetrics metric = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getMetrics(metric);
@@ -1060,9 +1061,11 @@ public abstract class BaseActivity extends TransitionAnimationActivity {
             int height = metric.heightPixels; // 屏幕高度（像素）
             int densityDpi = metric.densityDpi; // 屏幕密度DPI（120 / 160 / 240）
 
-            RunningContext.sScreenHeight = height;
-            RunningContext.sScreenWidth = width;
-            RunningContext.sScreenDpi = densityDpi;
+            RunningEnvironment.sScreenHeight = height;
+            RunningEnvironment.sScreenWidth = width;
+            RunningEnvironment.sScreenDpi = densityDpi;
+            RunningEnvironment.sFontScale = metric.scaledDensity;
+            RunningEnvironment.sScreenDensity = metric.density;
         }
     }
 

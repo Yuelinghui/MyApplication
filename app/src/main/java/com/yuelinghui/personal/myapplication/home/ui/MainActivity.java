@@ -11,7 +11,8 @@ import com.yuelinghui.personal.maframe.UIData;
 import com.yuelinghui.personal.myapplication.R;
 import com.yuelinghui.personal.myapplication.core.AppBroadcastAction;
 import com.yuelinghui.personal.myapplication.core.AppRunningContext;
-import com.yuelinghui.personal.myapplication.core.ui.BaseActivity;
+import com.yuelinghui.personal.widget.core.ui.BaseActivity;
+import com.yuelinghui.personal.myapplication.home.ui.recyclerview.RecyclerFragment;
 import com.yuelinghui.personal.myapplication.util.BroadcastUtil;
 import com.yuelinghui.personal.widget.titlebar.CustomAction;
 import com.yuelinghui.personal.widget.titlebar.CustomTitleBar;
@@ -68,7 +69,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void load() {
-        startFirstFragment(new MainFragment());
+        startFirstFragment(new RecyclerFragment());
     }
 
     @Override

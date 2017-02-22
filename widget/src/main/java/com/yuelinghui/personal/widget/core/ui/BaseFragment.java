@@ -1,4 +1,4 @@
-package com.yuelinghui.personal.myapplication.core.ui;
+package com.yuelinghui.personal.widget.core.ui;
 
 import android.app.Activity;
 import android.app.Instrumentation;

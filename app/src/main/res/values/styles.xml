@@ -10,25 +10,7 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
-    <style name="Theme.Activity.Common" parent="android:Theme">
-        <item name="android:windowTitleSize">@dimen/title_height</item>
-        <item name="android:windowBackground">@color/common_bg</item>
-        <item name="android:windowTitleBackgroundStyle">@style/app_title_background_color</item>
-        <item name="android:windowAnimationStyle">@style/animation_activity_common</item>
-    </style>
-
-    <style name="app_title_background_color">
-        <item name="android:background">@color/common_bg</item>
-    </style>
-
-    <style name="animation_activity_common">
-        <item name="android:activityOpenEnterAnimation">@anim/push_right_in</item>
-        <item name="android:activityOpenExitAnimation">@anim/push_left_out</item>
-        <item name="android:activityCloseEnterAnimation">@anim/push_left_in</item>
-        <item name="android:activityCloseExitAnimation">@anim/push_right_out</item>
-    </style>
-    
-    <style name="DayTheme" parent="Theme.Activity.Common">
+    <style name="DayTheme" parent="Widget.DayTheme">
         <item name="home_item_text_color">@color/txt_main</item>
         <item name="home_bg">@color/bg_pressed</item>
         <item name="home_item_bg">@color/white</item>
@@ -36,9 +18,10 @@
         <item name="icon_nav_header_mode">@drawable/icon_menu_night</item>
         <item name="icon_nav_header_offline">@drawable/icon_menu_outline_day</item>
         <item name="text_mode_string">@string/main_menu_night_mode</item>
+        <item name="refresh_type">1</item>
     </style>
 
-    <style name="NightTheme" parent="Theme.Activity.Common">
+    <style name="NightTheme" parent="Widget.NightTheme">
         <item name="home_item_text_color">@color/white</item>
         <item name="home_bg">@color/night_mode_background</item>
         <item name="home_item_bg">@color/night_mode_item_background</item>
@@ -47,5 +30,7 @@
         <item name="icon_nav_header_mode">@drawable/icon_day</item>
         <item name="icon_nav_header_offline">@drawable/icon_menu_outline_night</item>
         <item name="text_mode_string">@string/main_menu_day_mode</item>
+
+        <item name="refresh_type">2</item>
     </style>
 </resources>

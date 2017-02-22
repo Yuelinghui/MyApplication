@@ -3,6 +3,7 @@ package com.yuelinghui.personal.widget.core;
 import android.os.Environment;
 import android.text.TextUtils;
 
+import com.yuelinghui.personal.maframe.are.RunningEnvironment;
 import com.yuelinghui.personal.maframe.util.FileHelper;
 
 import java.io.File;
@@ -31,7 +32,7 @@ public class FilePathProvider {
      */
     public static String getInternalPath() {
         try {
-            return RunningContext.sAppContext.getFilesDir().getPath()
+            return RunningEnvironment.sAppContext.getFilesDir().getPath()
                     + File.separator;
         } catch (Exception e) {
             return "";
@@ -46,7 +47,7 @@ public class FilePathProvider {
     public static String getModulePath(String moduleFolder) {
 
         try {
-            String modulePath = RunningContext.sAppContext.getFilesDir()
+            String modulePath = RunningEnvironment.sAppContext.getFilesDir()
                     .getPath() + File.separator + moduleFolder + File.separator;
             if (!FileHelper.createFolder(modulePath)) {
                 return "";
@@ -68,7 +69,7 @@ public class FilePathProvider {
             return getInternalPath();
         }
         try {
-            return RunningContext.sAppContext.getExternalFilesDir(null)
+            return RunningEnvironment.sAppContext.getExternalFilesDir(null)
                     .getPath() + File.separator;
         } catch (Exception e) {
             return "";

@@ -16,11 +16,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.yuelinghui.personal.maframe.are.RunningEnvironment;
 import com.yuelinghui.personal.maframe.result.ResultHandler;
 import com.yuelinghui.personal.widget.R;
 import com.yuelinghui.personal.widget.core.ImageManager;
 import com.yuelinghui.personal.widget.core.LocalImageCache;
-import com.yuelinghui.personal.widget.core.RunningContext;
 
 /**
  * Created by yuelinghui on 16/10/11.
@@ -453,8 +453,8 @@ public class CustomImageView extends ImageView {
 
         int width = loadImg.getWidth();
         int height = loadImg.getHeight();
-        float scaleWidth = ((float) RunningContext.sScreenWidth) / width;
-        float scaleHeight = ((float) RunningContext.sScreenHeight) / height;
+        float scaleWidth = ((float) RunningEnvironment.sScreenWidth) / width;
+        float scaleHeight = ((float) RunningEnvironment.sScreenHeight) / height;
         float scale = Math.min(scaleWidth, scaleHeight);
         Matrix matrix = new Matrix();
         matrix.postScale(scale, scale);
@@ -469,8 +469,8 @@ public class CustomImageView extends ImageView {
             return null;
         }
 
-        float width = RunningContext.sScreenWidth * 0.25f;
-        float height = RunningContext.sScreenHeight * 0.25f;
+        float width = RunningEnvironment.sScreenWidth * 0.25f;
+        float height = RunningEnvironment.sScreenHeight * 0.25f;
         float bitWidth = loadImg.getWidth();
         float bitHeight = loadImg.getHeight();
 

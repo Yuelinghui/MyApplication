@@ -8,8 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 
+import com.yuelinghui.personal.maframe.are.RunningEnvironment;
 import com.yuelinghui.personal.widget.R;
-import com.yuelinghui.personal.widget.core.RunningContext;
 
 import java.util.List;
 
@@ -53,8 +53,8 @@ public class CustomActionMenu {
 
         mPopupWindow = new PopupWindow(view, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        if (RunningContext.sScreenWidth != 0) {
-            mPopupWindow.setWidth((int) (RunningContext.sScreenWidth * 0.45));
+        if (RunningEnvironment.sScreenWidth != 0) {
+            mPopupWindow.setWidth((int) (RunningEnvironment.sScreenWidth * 0.45));
         }
         mPopupWindow.setFocusable(true);
         mPopupWindow.setAnimationStyle(R.style.popuWindowAnimation);

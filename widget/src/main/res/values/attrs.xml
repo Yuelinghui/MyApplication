@@ -20,4 +20,14 @@
         <attr name="sidebarTextSizeChoose" format="dimension"/>
         <attr name="sidebarItemHeight" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="RefreshView">
+        <attr name="type" format="integer"/>
+        <attr name="refresh_enable" format="boolean"/>
+        <attr name="item_both_side" format="dimension"/>
+        <attr name="item_margin_top" format="dimension"/>
+        <attr name="item_margin" format="dimension"/>
+        <attr name="decoration_color" format="reference|color"/>
+        <attr name="orientation" format="integer"/>
+    </declare-styleable>
 </resources>

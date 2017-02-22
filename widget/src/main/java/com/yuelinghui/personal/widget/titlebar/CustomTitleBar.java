@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.yuelinghui.personal.maframe.are.RunningEnvironment;
 import com.yuelinghui.personal.maframe.util.ListUtil;
 import com.yuelinghui.personal.widget.CustomButton;
 import com.yuelinghui.personal.widget.R;
-import com.yuelinghui.personal.widget.core.RunningContext;
 import com.yuelinghui.personal.widget.image.CustomImageView;
 
 import java.util.List;
@@ -88,13 +88,13 @@ public class CustomTitleBar extends FrameLayout {
         mTitleLayout = findViewById(R.id.layout_title);
         mTitleTxt = (TextView) findViewById(R.id.txt_main_title);
         int maxpixels = 0;
-        if (RunningContext.sScreenWidth > 0) {
-            maxpixels = RunningContext.sScreenWidth
-                    - RunningContext.sAppContext
+        if (RunningEnvironment.sScreenWidth > 0) {
+            maxpixels = RunningEnvironment.sScreenWidth
+                    - RunningEnvironment.sAppContext
                     .getResources()
                     .getDimensionPixelOffset(R.dimen.titlebar_width_sub);
         } else {
-            maxpixels = RunningContext.sAppContext.getResources()
+            maxpixels = RunningEnvironment.sAppContext.getResources()
                     .getDimensionPixelOffset(R.dimen.titlebar_width_avage);
         }
         mTitleTxt.setMaxWidth(maxpixels);
@@ -137,7 +137,7 @@ public class CustomTitleBar extends FrameLayout {
             mTitleRightBtn.setTextColor(Color.WHITE);
             setTitleDividerVisiable(false);
         } else {
-            int txt_main = RunningContext.sAppContext.getResources().getColor(
+            int txt_main = RunningEnvironment.sAppContext.getResources().getColor(
                     R.color.txt_main);
             mTitleTxt.setTextColor(txt_main);
             mTitleRightBtn.setTextColor(txt_main);

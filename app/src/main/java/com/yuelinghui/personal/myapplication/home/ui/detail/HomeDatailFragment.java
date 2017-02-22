@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.yuelinghui.personal.myapplication.R;
 import com.yuelinghui.personal.myapplication.core.AppRunningContext;
-import com.yuelinghui.personal.widget.CustomScrollWebView;
 import com.yuelinghui.personal.widget.core.ui.BaseFragment;
+import com.yuelinghui.personal.widget.CustomScrollWebView;
 import com.yuelinghui.personal.widget.image.CustomImageView;
 
 import butterknife.Bind;

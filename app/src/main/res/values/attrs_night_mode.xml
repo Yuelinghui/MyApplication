@@ -7,4 +7,7 @@
     <attr name="icon_nav_header_mode" format="color|reference"/>
     <attr name="icon_nav_header_offline" format="color|reference"/>
     <attr name="text_mode_string" format="string"/>
+
+    <attr name="refresh_type" format="reference|integer"/>
+
 </resources>

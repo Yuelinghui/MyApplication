@@ -2,6 +2,7 @@
 <resources>
     <!--系统-->
     <dimen name="toast_y_offset">64.0dip</dimen>
+    <dimen name="title_height">48dp</dimen>
 
     <dimen name="margin_h_extreme_small">2dp</dimen>
     <dimen name="margin_h_small">4dp</dimen>
@@ -29,4 +30,5 @@
     <dimen name="titlebar_width_sub">100dp</dimen>
 
     <dimen name="height_small">20dp</dimen>
+
 </resources>

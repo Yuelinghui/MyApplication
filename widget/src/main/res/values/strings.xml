@@ -12,4 +12,6 @@
     <string name="refresh_listview_header_hint_empty">暂无更多记录</string>
     <string name="refresh_listview_header_hint_ready">松开加载更多</string>
     <string name="refresh_listview_header_hint_normal">滑动加载</string>
+
+    <string name="refresh_recycler_no_more">没有更多啦</string>
 </resources>

@@ -12,7 +12,7 @@ import com.yuelinghui.personal.maframe.result.ResultHandler;
 import com.yuelinghui.personal.maframe.util.DateUtil;
 import com.yuelinghui.personal.myapplication.R;
 import com.yuelinghui.personal.myapplication.core.AppRunningContext;
-import com.yuelinghui.personal.myapplication.core.ui.BaseFragment;
+import com.yuelinghui.personal.widget.core.ui.BaseFragment;
 import com.yuelinghui.personal.myapplication.home.entity.ArticleInfo;
 import com.yuelinghui.personal.myapplication.home.entity.StoriesInfo;
 import com.yuelinghui.personal.myapplication.home.model.MainModel;

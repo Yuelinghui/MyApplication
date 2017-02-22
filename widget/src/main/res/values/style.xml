@@ -60,4 +60,36 @@
         <item name="android:paddingLeft">@dimen/margin_h_middle</item>
         <item name="android:paddingRight">@dimen/margin_h_middle</item>
     </style>
+
+    <style name="Theme.Activity.Common" parent="android:Theme">
+        <item name="android:windowTitleSize">@dimen/title_height</item>
+        <item name="android:windowBackground">@color/common_bg</item>
+        <item name="android:windowTitleBackgroundStyle">@style/app_title_background_color</item>
+        <item name="android:windowAnimationStyle">@style/animation_activity_common</item>
+    </style>
+
+    <style name="app_title_background_color">
+        <item name="android:background">@color/common_bg</item>
+    </style>
+
+    <style name="animation_activity_common">
+        <item name="android:activityOpenEnterAnimation">@anim/push_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/push_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/push_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/push_right_out</item>
+    </style>
+
+    <style name="Widget.DayTheme" parent="Theme.Activity.Common">
+        <item name="home_feed_item_bg">@color/white</item>
+        <item name="txt_no_more_footer">@color/txt_no_more_footer</item>
+        <item name="bg_no_more_footer_line">@color/no_more_footer_line</item>
+
+    </style>
+
+    <style name="Widget.NightTheme" parent="Theme.Activity.Common">
+        <item name="home_feed_item_bg">@color/night_mode_background</item>
+        <item name="txt_no_more_footer">@color/white</item>
+        <item name="bg_no_more_footer_line">@color/night_home_border_line</item>
+    </style>
+
 </resources>

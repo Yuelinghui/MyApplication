@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="home_feed_item_bg" format="color|reference"/>
+    <attr name="bg_no_more_footer_line" format="color|reference"/>
+    <attr name="txt_no_more_footer" format="color|reference"/>
+</resources>

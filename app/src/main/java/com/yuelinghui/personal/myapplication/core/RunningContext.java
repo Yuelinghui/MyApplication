@@ -13,19 +13,6 @@ import com.yuelinghui.personal.widget.toast.Toast;
 
 public class RunningContext extends RunningEnvironment{
     /**
-     * 屏幕高幕
-     */
-    public static int sScreenHeight;
-    /**
-     * 屏幕宽
-     */
-    public static int sScreenWidth;
-    /**
-     * 屏幕密度dpi
-     */
-    public static int sScreenDpi;
-
-    /**
      * APP配置数据
      */
     public static AppData sAppData = new AppData();

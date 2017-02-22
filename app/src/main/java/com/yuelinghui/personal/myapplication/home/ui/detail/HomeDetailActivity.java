@@ -8,11 +8,11 @@ import com.yuelinghui.personal.maframe.result.ResultHandler;
 import com.yuelinghui.personal.maframe.util.ListUtil;
 import com.yuelinghui.personal.myapplication.R;
 import com.yuelinghui.personal.myapplication.core.AppRunningContext;
+import com.yuelinghui.personal.myapplication.core.RunningContext;
+import com.yuelinghui.personal.widget.core.ui.BaseActivity;
 import com.yuelinghui.personal.myapplication.home.entity.HomeDetailInfo;
 import com.yuelinghui.personal.myapplication.home.model.MainModel;
-import com.yuelinghui.personal.myapplication.core.RunningContext;
 import com.yuelinghui.personal.widget.core.WebTextManager;
-import com.yuelinghui.personal.widget.core.ui.BaseActivity;
 import com.yuelinghui.personal.widget.toast.CustomToast;
 
 /**

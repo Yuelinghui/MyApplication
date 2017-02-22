@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 
+import com.yuelinghui.personal.maframe.are.RunningEnvironment;
 import com.yuelinghui.personal.maframe.cache.ImageMemoryCache;
 
 import java.io.File;
@@ -25,7 +26,7 @@ public class LocalImageCache extends ImageMemoryCache {
      */
     private static int cacheSize() {
         // 初始化强引用缓存
-        int memClass = ((ActivityManager) RunningContext.sAppContext
+        int memClass = ((ActivityManager) RunningEnvironment.sAppContext
                 .getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass();
         return 1024 * 1024 * memClass / 4; // 硬引用缓存容量，为系统可用内存的1/4
     }

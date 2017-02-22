@@ -75,6 +75,24 @@ public class RunningEnvironment {
     private static Runnable mContextResultRunnable = null;
 
     /**
+     * 屏幕高幕
+     */
+    public static int sScreenHeight;
+    /**
+     * 屏幕宽
+     */
+    public static int sScreenWidth;
+    /**
+     * 屏幕密度dpi
+     */
+    public static int sScreenDpi;
+
+    public static float sFontScale;
+
+    public static float sScreenDensity;
+    
+
+    /**
      * 初始化方法
      *
      * @param app

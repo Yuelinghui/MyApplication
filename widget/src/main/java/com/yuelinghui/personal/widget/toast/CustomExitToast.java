@@ -7,8 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.yuelinghui.personal.maframe.are.RunningEnvironment;
 import com.yuelinghui.personal.widget.R;
-import com.yuelinghui.personal.widget.core.RunningContext;
 
 /**
  * Created by yuelinghui on 16/10/13.
@@ -36,9 +36,9 @@ public class CustomExitToast extends Toast {
     @Override
     public void show() {
         // 如果已经退出应用，则不弹出toast
-        if (RunningContext.sAppData.sIsExitApp) {
-            return;
-        }
+//        if (RunningEnvironment.sAppData.sIsExitApp) {
+//            return;
+//        }
 
         if (TextUtils.isEmpty(mToastStr)) {
             return;
@@ -60,8 +60,8 @@ public class CustomExitToast extends Toast {
     }
 
     public static CustomExitToast makeText(CharSequence text) {
-        CustomExitToast toast = new CustomExitToast(RunningContext.sAppContext, text);
-        LayoutInflater inflate = (LayoutInflater) RunningContext.sAppContext
+        CustomExitToast toast = new CustomExitToast(RunningEnvironment.sAppContext, text);
+        LayoutInflater inflate = (LayoutInflater) RunningEnvironment.sAppContext
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflate.inflate(R.layout.custom_toast, null);
         TextView tip = (TextView) view.findViewById(R.id.txt_tip);
@@ -87,7 +87,7 @@ public class CustomExitToast extends Toast {
      * @return
      */
     public static CustomExitToast makeText(int resId) {
-        return makeText(RunningContext.sAppContext.getResources()
+        return makeText(RunningEnvironment.sAppContext.getResources()
                 .getText(resId));
     }
 }
