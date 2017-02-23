@@ -76,7 +76,10 @@ public class RecyclerFragment extends BaseFragment{
                 mRefreshView.getLinearRecyclerView().notifyDataSetChanged();
             }
         });
-
+        mBannerPlayView = new BannerPlayView(mActivity);
+        mBannerPlayView.setBannerClickListener(mBannerClickListener);
+        mBannerPlayView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getResources().getDimensionPixelOffset(R.dimen.banner_height)));
+        mRefreshView.getLinearRecyclerView().addHeaderView(mBannerPlayView);
         loadLast();
         return view;
     }
@@ -152,7 +155,6 @@ public class RecyclerFragment extends BaseFragment{
     }
 
     private void initHeaderView() {
-        mBannerPlayView = new BannerPlayView(mActivity);
         BannerInfo bannerInfo = new BannerInfo();
         bannerInfo.interval = 5 * 1000;
         bannerInfo.bannerData = new ArrayList<>();
@@ -164,9 +166,6 @@ public class RecyclerFragment extends BaseFragment{
             bannerInfo.bannerData.add(banner);
         }
         mBannerPlayView.setData(getChildFragmentManager(), bannerInfo);
-        mBannerPlayView.setBannerClickListener(mBannerClickListener);
-        mBannerPlayView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getResources().getDimensionPixelOffset(R.dimen.banner_height)));
-        mRefreshView.getLinearRecyclerView().addHeaderView(mBannerPlayView);
     }
 
     private BannerPlayView.BannerClickListener mBannerClickListener = new BannerPlayView.BannerClickListener() {
