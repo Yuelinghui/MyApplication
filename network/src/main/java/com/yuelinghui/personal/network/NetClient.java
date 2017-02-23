@@ -23,9 +23,9 @@ import com.yuelinghui.personal.network.mock.MockAsyncHttpClient;
 import com.yuelinghui.personal.network.mock.MockConfig;
 import com.yuelinghui.personal.network.mock.MockProtocol;
 import com.yuelinghui.personal.network.mock.MockSSLSocketFactory;
-import com.yuelinghui.personal.network.protocol.CPProtocol;
-import com.yuelinghui.personal.network.protocol.CPProtocolAction;
-import com.yuelinghui.personal.network.protocol.CPProtocolGroup;
+import com.yuelinghui.personal.network.protocol.CustomProtocol;
+import com.yuelinghui.personal.network.protocol.CustomProtocolAction;
+import com.yuelinghui.personal.network.protocol.CustomProtocolGroup;
 import com.yuelinghui.personal.network.protocol.CacheRequestParam;
 import com.yuelinghui.personal.network.protocol.Request;
 import com.yuelinghui.personal.network.protocol.RequestParam;
@@ -62,7 +62,7 @@ public class NetClient {
     /**
      * 协议组
      */
-    protected static CPProtocolGroup payProtocol = new CPProtocolGroup();
+    protected static CustomProtocolGroup payProtocol = new CustomProtocolGroup();
     /**
      * 请求处理对象
      */
@@ -117,7 +117,7 @@ public class NetClient {
         }
     }
 
-    public static void addProtocol(CPProtocol protocol) {
+    public static void addProtocol(CustomProtocol protocol) {
         synchronized (payProtocol) {
             protocol.load(payProtocol);
         }
@@ -127,7 +127,7 @@ public class NetClient {
      * 添加模块对应Mock信息
      */
     public static void addMockProtocol(String module,
-                                       MockProtocol mockProtocol, CPProtocol protocol) {
+                                       MockProtocol mockProtocol, CustomProtocol protocol) {
         // FIXME release时直接抛异常，避免外部调用
         if (!mock) {
             throw new RuntimeException(
@@ -154,7 +154,7 @@ public class NetClient {
      * @return
      */
     public static boolean isRepeatableRequest(final RequestParam param) {
-        CPProtocolAction action = CPProtocolGroup.getAction(param);
+        CustomProtocolAction action = CustomProtocolGroup.getAction(param);
         return action != null && action.retry;
     }
 

@@ -6,8 +6,8 @@ import android.text.TextUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.yuelinghui.personal.maframe.are.RunningEnvironment;
-import com.yuelinghui.personal.network.protocol.CPProtocol;
-import com.yuelinghui.personal.network.protocol.CPProtocolGroup;
+import com.yuelinghui.personal.network.protocol.CustomProtocol;
+import com.yuelinghui.personal.network.protocol.CustomProtocolGroup;
 import com.yuelinghui.personal.network.protocol.RequestParam;
 
 import java.util.ArrayList;
@@ -47,7 +47,7 @@ public class MockConfig {
      * 添加模块对应Mock信息
      */
     public static synchronized void addMockConfig(String module,
-                                                  MockProtocol mockProtocol, CPProtocol protocol) {
+                                                  MockProtocol mockProtocol, CustomProtocol protocol) {
         if (mockProtocol == null) {
             throw new IllegalArgumentException("mockProtocol must not be null");
         }
@@ -56,7 +56,7 @@ public class MockConfig {
         }
 
         // 1.缺省数据
-        List<Class<?>> params = CPProtocolGroup
+        List<Class<?>> params = CustomProtocolGroup
                 .getProtocolRequestParams(protocol);
         List<Map<String, Integer>> configList = new ArrayList<Map<String, Integer>>(
                 5);

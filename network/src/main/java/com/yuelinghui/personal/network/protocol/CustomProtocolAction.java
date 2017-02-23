@@ -5,7 +5,7 @@ import java.lang.reflect.Type;
 /**
  * Created by yuelinghui on 16/9/27.
  */
-public class CPProtocolAction {
+public class CustomProtocolAction {
     /**
      * 请求地址
      */
@@ -27,21 +27,21 @@ public class CPProtocolAction {
      */
     public Type controlType;
 
-    public CPProtocolAction(String url, Type resultType) {
+    public CustomProtocolAction(String url, Type resultType) {
         this(url, true, resultType, String.class, Void.class);
     }
 
-    public CPProtocolAction(String url, Type resultType, Type messageType,
-                            Type controlType) {
+    public CustomProtocolAction(String url, Type resultType, Type messageType,
+                                Type controlType) {
         this(url, true, resultType, messageType, controlType);
     }
 
-    public CPProtocolAction(String url, boolean retry, Type resultType) {
+    public CustomProtocolAction(String url, boolean retry, Type resultType) {
         this(url, retry, resultType, String.class, Void.class);
     }
 
-    public CPProtocolAction(String url, boolean retry, Type resultType,
-                            Type messageType, Type controlType) {
+    public CustomProtocolAction(String url, boolean retry, Type resultType,
+                                Type messageType, Type controlType) {
         this.url = url;
         this.retry = retry;
         this.resultType = resultType;

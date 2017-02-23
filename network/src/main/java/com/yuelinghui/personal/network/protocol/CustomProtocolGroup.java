@@ -30,7 +30,7 @@ import java.util.concurrent.Callable;
 /**
  * Created by yuelinghui on 16/9/27.
  */
-public class CPProtocolGroup {
+public class CustomProtocolGroup {
     /**
      * JSON 节点名称
      */
@@ -45,17 +45,17 @@ public class CPProtocolGroup {
     private static final String HEADER_CONTENT_TYPE = "Content-Type";
     private static final String CONTENT_TYPE_JSON = "application/json; charset=UTF-8";
 
-    private static HashMap<Class<?>, CPProtocolAction> mActions = new HashMap<>(20);
+    private static HashMap<Class<?>, CustomProtocolAction> mActions = new HashMap<>(20);
 
-    public static CPProtocolAction addAction(Class<? extends RequestParam> param, CPProtocolAction action) {
+    public static CustomProtocolAction addAction(Class<? extends RequestParam> param, CustomProtocolAction action) {
         return mActions.put(param, action);
     }
 
-    public static CPProtocolAction getAction(RequestParam param) {
+    public static CustomProtocolAction getAction(RequestParam param) {
         return mActions.get(param.getClass());
     }
 
-    public static CPProtocolAction getAction(Class<? extends RequestParam> paramClass) {
+    public static CustomProtocolAction getAction(Class<? extends RequestParam> paramClass) {
         return mActions.get(paramClass);
     }
 
@@ -65,7 +65,7 @@ public class CPProtocolGroup {
      * @param protocol
      * @return
      */
-    public static List<Class<?>> getProtocolRequestParams(CPProtocol protocol) {
+    public static List<Class<?>> getProtocolRequestParams(CustomProtocol protocol) {
         if (protocol == null) {
             throw new IllegalArgumentException("protocol must not be null");
         }
@@ -74,7 +74,7 @@ public class CPProtocolGroup {
         Class<?> key = null;
 
         String protocolPkg = protocol.getClass().getPackage().getName();
-        for (Map.Entry<Class<?>, CPProtocolAction> entry : mActions.entrySet()) {
+        for (Map.Entry<Class<?>, CustomProtocolAction> entry : mActions.entrySet()) {
             key = entry.getKey();
             if (protocolPkg.equals(key.getPackage().getName())) {
                 params.add(key);
@@ -91,7 +91,7 @@ public class CPProtocolGroup {
      * @throws UnsupportedEncodingException
      */
     public Request buildPostRequest(RequestParam param) throws UnsupportedEncodingException {
-        CPProtocolAction action = getAction(param);
+        CustomProtocolAction action = getAction(param);
         if (action == null) {
             throw new IllegalArgumentException("action not found:" + param.getClass());
         }
@@ -99,7 +99,7 @@ public class CPProtocolGroup {
     }
 
     public Request buildGetRequest(RequestParam requestParam, UrlParam urlParam) throws UnsupportedEncodingException {
-        CPProtocolAction action = null;
+        CustomProtocolAction action = null;
         if (requestParam != null) {
              action = getAction(requestParam);
         }
@@ -197,7 +197,7 @@ public class CPProtocolGroup {
      * 创建Post请求对象
      */
     protected <T> HttpEntityEnclosingRequestBase buildPostRequest(
-            CPProtocolAction action, T entity)
+            CustomProtocolAction action, T entity)
             throws UnsupportedEncodingException {
         return buildPostRequest(action.url, entity);
     }
@@ -226,7 +226,7 @@ public class CPProtocolGroup {
      */
     public <DataType, MessageType, ControlType> TypedResult<DataType, MessageType, ControlType> parseResult(
             RequestParam requestParam,UrlParam urlParam, String result) throws JSONException {
-        CPProtocolAction action = null;
+        CustomProtocolAction action = null;
         if (requestParam != null) {
             action = getAction(requestParam);
         }

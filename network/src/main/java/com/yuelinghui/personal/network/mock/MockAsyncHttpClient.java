@@ -5,7 +5,7 @@ import android.util.Log;
 import com.yuelinghui.personal.maframe.concurrent.Callbackable;
 import com.yuelinghui.personal.maframe.result.Result;
 import com.yuelinghui.personal.maframe.result.TypedResult;
-import com.yuelinghui.personal.network.protocol.CPProtocolGroup;
+import com.yuelinghui.personal.network.protocol.CustomProtocolGroup;
 import com.yuelinghui.personal.network.protocol.RequestParam;
 
 import org.json.JSONException;
@@ -16,7 +16,7 @@ import org.json.JSONException;
 
 public class MockAsyncHttpClient {
 
-    private static CPProtocolGroup payProtocol = new CPProtocolGroup();
+    private static CustomProtocolGroup payProtocol = new CustomProtocolGroup();
 
     /**
      * client创建器
