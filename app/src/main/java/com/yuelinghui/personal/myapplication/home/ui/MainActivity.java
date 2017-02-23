@@ -123,7 +123,7 @@ public class MainActivity extends BaseActivity {
                     setTitleBarColor(Color.WHITE);
                     setTheme(R.style.DayTheme);
                 }
-                startFirstFragment(new MainFragment());
+                startFirstFragment(new RecyclerFragment());
             }
         }
     }

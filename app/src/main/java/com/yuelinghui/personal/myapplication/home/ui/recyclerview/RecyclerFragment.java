@@ -12,12 +12,16 @@ import com.yuelinghui.personal.maframe.result.ResultHandler;
 import com.yuelinghui.personal.maframe.util.DateUtil;
 import com.yuelinghui.personal.myapplication.R;
 import com.yuelinghui.personal.myapplication.core.AppRunningContext;
-import com.yuelinghui.personal.widget.core.ui.BaseFragment;
 import com.yuelinghui.personal.myapplication.home.entity.ArticleInfo;
 import com.yuelinghui.personal.myapplication.home.entity.StoriesInfo;
 import com.yuelinghui.personal.myapplication.home.model.MainModel;
 import com.yuelinghui.personal.myapplication.home.ui.MainData;
 import com.yuelinghui.personal.myapplication.home.ui.detail.HomeDetailActivity;
+import com.yuelinghui.personal.myapplication.util.SharedUtil;
+import com.yuelinghui.personal.widget.bannerview.Banner;
+import com.yuelinghui.personal.widget.bannerview.BannerInfo;
+import com.yuelinghui.personal.widget.bannerview.BannerPlayView;
+import com.yuelinghui.personal.widget.core.ui.BaseFragment;
 import com.yuelinghui.personal.widget.recyclerview.LinearRecyclerView;
 import com.yuelinghui.personal.widget.recyclerview.Model;
 import com.yuelinghui.personal.widget.refreshview.SingleRefreshView;
@@ -41,12 +45,17 @@ public class RecyclerFragment extends BaseFragment{
 
     private MainModel mMainModel;
 
+    private BannerPlayView mBannerPlayView;
+
+    private SharedUtil mSharedUtil;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.recycler_fragment_layout,container,false);
         ButterKnife.bind(this,view);
         mMainData = (MainData) mUIData;
+        mSharedUtil = new SharedUtil(mActivity);
         mRefreshView.getLinearRecyclerView().setGenerator(new HomeVHGennerator(LayoutInflater.from(getActivity())));
         mRefreshView.setOnRefreshCallBack(new SingleRefreshView.IRefreshCallBack() {
             @Override
@@ -63,6 +72,8 @@ public class RecyclerFragment extends BaseFragment{
             @Override
             public void onItemClick(LinearRecyclerView recyclerView, View view, int position, HomeItemData model) {
                 startDetail(model.getArticleInfo().id);
+                mSharedUtil.set(true, model.getArticleInfo().id + "");
+                mRefreshView.getLinearRecyclerView().notifyDataSetChanged();
             }
         });
 
@@ -92,6 +103,7 @@ public class RecyclerFragment extends BaseFragment{
                 mMainData.articleInfo = data;
                 mRefreshView.setData(convertData(data.stories));
                 mRefreshView.hasMore(true);
+                initHeaderView();
             }
 
             @Override
@@ -138,6 +150,33 @@ public class RecyclerFragment extends BaseFragment{
             }
         });
     }
+
+    private void initHeaderView() {
+        mBannerPlayView = new BannerPlayView(mActivity);
+        BannerInfo bannerInfo = new BannerInfo();
+        bannerInfo.interval = 5 * 1000;
+        bannerInfo.bannerData = new ArrayList<>();
+        for (StoriesInfo storiesInfo : mMainData.articleInfo.top_stories) {
+            Banner banner = new Banner();
+            banner.id = storiesInfo.id;
+            banner.imageUrl = storiesInfo.image;
+            banner.describe = storiesInfo.title;
+            bannerInfo.bannerData.add(banner);
+        }
+        mBannerPlayView.setData(getChildFragmentManager(), bannerInfo);
+        mBannerPlayView.setBannerClickListener(mBannerClickListener);
+        mBannerPlayView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getResources().getDimensionPixelOffset(R.dimen.banner_height)));
+        mRefreshView.getLinearRecyclerView().addHeaderView(mBannerPlayView);
+    }
+
+    private BannerPlayView.BannerClickListener mBannerClickListener = new BannerPlayView.BannerClickListener() {
+        @Override
+        public void onBannerClick(int index) {
+            StoriesInfo info = mMainData.articleInfo.top_stories.get(index);
+            startDetail(info.id);
+        }
+    };
+
 
     private void startDetail(int id) {
         Intent intent = new Intent();

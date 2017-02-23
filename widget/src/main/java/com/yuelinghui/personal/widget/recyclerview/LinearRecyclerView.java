@@ -125,6 +125,10 @@ public class LinearRecyclerView <T extends Model.ItemData, VH extends Model.Base
         return mLastBindPosition;
     }
 
+    public void notifyDataSetChanged() {
+        mAdapter.notifyDataSetChanged();
+    }
+
     /********************** IDataHandler ****************/
     @Override
     public void add(@NonNull T model) {
