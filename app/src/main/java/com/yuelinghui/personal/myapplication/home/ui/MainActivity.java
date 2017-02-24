@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 
 import com.yuelinghui.personal.maframe.UIData;
 import com.yuelinghui.personal.myapplication.R;
@@ -14,6 +15,7 @@ import com.yuelinghui.personal.myapplication.core.AppRunningContext;
 import com.yuelinghui.personal.widget.core.ui.BaseActivity;
 import com.yuelinghui.personal.myapplication.home.ui.recyclerview.RecyclerFragment;
 import com.yuelinghui.personal.myapplication.util.BroadcastUtil;
+import com.yuelinghui.personal.widget.dialog.CustomDialog;
 import com.yuelinghui.personal.widget.titlebar.CustomAction;
 import com.yuelinghui.personal.widget.titlebar.CustomTitleBar;
 import com.yuelinghui.personal.widget.toast.CustomExitToast;
@@ -51,9 +53,14 @@ public class MainActivity extends BaseActivity {
             setTheme(R.style.NightTheme);
         }
         mActionList = new ArrayList<>();
+        // 日间或夜间
         CustomAction action = new CustomAction();
         action.menuTitle = rightText;
+        // 声明
+        CustomAction statement = new CustomAction();
+        statement.menuTitle = getString(R.string.main_menu_statement);
         mActionList.add(action);
+        mActionList.add(statement);
         setActions(mActionList);
         setActionClickListener(mRightClick);
         AppRunningContext.sAppData.sIsExitApp = false;
@@ -81,13 +88,29 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onClick(CustomAction menu) {
             int index = mActionList.indexOf(menu);
-            boolean isNight = !AppRunningContext.isNightMode();
-            AppRunningContext.setNightMode(isNight);
-            BroadcastUtil.sendNightModeChange(MainActivity.this);
-            menu.menuTitle = isNight ? getString(R.string.main_menu_day_mode) : getString(R.string.main_menu_night_mode);
-            mActionList.remove(index);
-            mActionList.add(index, menu);
-            setActions(mActionList);
+            switch (index) {
+                case 0:
+                    boolean isNight = !AppRunningContext.isNightMode();
+                    AppRunningContext.setNightMode(isNight);
+                    BroadcastUtil.sendNightModeChange(MainActivity.this);
+                    menu.menuTitle = isNight ? getString(R.string.main_menu_day_mode) : getString(R.string.main_menu_night_mode);
+                    mActionList.remove(index);
+                    mActionList.add(index, menu);
+                    setActions(mActionList);
+                    break;
+                case 1:
+                    final CustomDialog dialog = new CustomDialog(MainActivity.this);
+                    dialog.setMsg(getString(R.string.statement_message));
+                    dialog.setTitle(getString(R.string.main_menu_statement));
+                    dialog.setOkButton(getString(R.string.statement_ok), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.cancel();
+                        }
+                    });
+                    dialog.show();
+                    break;
+            }
         }
     };
 

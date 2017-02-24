@@ -9,6 +9,9 @@
     <string name="main_menu_title">设置</string>
     <string name="main_menu_night_mode">夜间</string>
     <string name="main_menu_day_mode">日间</string>
+    <string name="main_menu_statement">声明</string>
+    <string name="statement_message">该项目为本人业余时间自学所用，请勿用于商业用途！若侵权，请告知本人！</string>
+    <string name="statement_ok">知道了</string>
 
     <string name="detail_title">文章详情</string>
 
