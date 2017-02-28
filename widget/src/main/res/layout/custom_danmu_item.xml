@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="@drawable/bg_danmu"
+    android:clickable="false"
+    android:layout_height="30dp">
+    <com.yuelinghui.personal.widget.image.CustomImageView
+        android:id="@+id/barrage_image"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"/>
+    <TextView
+        android:id="@+id/barrage_text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:gravity="center_vertical"
+        android:textSize="14sp"
+        android:textColor="#ffffff"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="30dp"/>
+</FrameLayout>

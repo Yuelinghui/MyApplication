@@ -24,5 +24,6 @@
     <color name="no_more_footer_line">#e7e7e7</color>
 
     <color name="google_holo_blue_light">#FF33B5E5</color>
+    <color name="danmu_bg_color">#aa555555</color>
 
 </resources>

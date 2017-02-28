@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yuelinghui.personal.maframe.are.RunningEnvironment;
 import com.yuelinghui.personal.maframe.result.Result;
 import com.yuelinghui.personal.maframe.result.ResultHandler;
 import com.yuelinghui.personal.maframe.util.DateUtil;
@@ -18,6 +19,7 @@ import com.yuelinghui.personal.myapplication.home.model.MainModel;
 import com.yuelinghui.personal.myapplication.home.ui.MainData;
 import com.yuelinghui.personal.myapplication.home.ui.detail.HomeDetailActivity;
 import com.yuelinghui.personal.myapplication.util.SharedUtil;
+import com.yuelinghui.personal.widget.CustomDanmuView;
 import com.yuelinghui.personal.widget.bannerview.Banner;
 import com.yuelinghui.personal.widget.bannerview.BannerInfo;
 import com.yuelinghui.personal.widget.bannerview.BannerPlayView;
@@ -37,9 +39,9 @@ import butterknife.ButterKnife;
  * Created by yuelinghui on 17/2/22.
  */
 
-public class RecyclerFragment extends BaseFragment{
+public class RecyclerFragment extends BaseFragment {
     @Bind(R.id.refresh_view)
-    SingleRefreshView<HomeItemData,Model.BaseViewHolder<HomeItemData>> mRefreshView;
+    SingleRefreshView<HomeItemData, Model.BaseViewHolder<HomeItemData>> mRefreshView;
 
     private MainData mMainData;
 
@@ -52,8 +54,8 @@ public class RecyclerFragment extends BaseFragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.recycler_fragment_layout,container,false);
-        ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.recycler_fragment_layout, container, false);
+        ButterKnife.bind(this, view);
         mMainData = (MainData) mUIData;
         mSharedUtil = new SharedUtil(mActivity);
         mRefreshView.getLinearRecyclerView().setGenerator(new HomeVHGennerator(LayoutInflater.from(getActivity())));
@@ -76,12 +78,32 @@ public class RecyclerFragment extends BaseFragment{
                 mRefreshView.getLinearRecyclerView().notifyDataSetChanged();
             }
         });
+
         mBannerPlayView = new BannerPlayView(mActivity);
         mBannerPlayView.setBannerClickListener(mBannerClickListener);
         mBannerPlayView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getResources().getDimensionPixelOffset(R.dimen.banner_height)));
         mRefreshView.getLinearRecyclerView().addHeaderView(mBannerPlayView);
         loadLast();
         return view;
+    }
+
+    /**
+     * 初始化弹幕View
+     */
+    private void initDanmu() {
+        ArrayList<CustomDanmuView.DanmuInfo> danmuInfoList = new ArrayList<>();
+
+        for (int i = 0; i < 20; i++) {
+            CustomDanmuView.DanmuInfo danmuInfo = new CustomDanmuView.DanmuInfo();
+            danmuInfo.setContent("这是第"+i+"条评论");
+            danmuInfo.setImage("http://img.qdaily.com/user/face/20160719173515kVSWBi0eJ8UDbs47.jpg?imageMogr2/auto-orient/thumbnail/!80x80r/gravity/Center/crop/80x80/quality/85/format/jpg/ignore-error/1");
+            danmuInfoList.add(danmuInfo);
+        }
+        CustomDanmuView customDanmuView = new CustomDanmuView(mActivity);
+        customDanmuView.setLayoutParams(new ViewGroup.LayoutParams(RunningEnvironment.sScreenWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
+        customDanmuView.initDanmuItemViews(danmuInfoList);
+        customDanmuView.start();
+        mRefreshView.getLinearRecyclerView().addHeaderView(customDanmuView);
     }
 
     private void loadLast() {
